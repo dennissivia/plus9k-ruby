@@ -1,10 +1,13 @@
 name: "Plus 9k"
 description: "Responds to +1 comments in issues"
-author: "Dennis sivia"
+author: "Dennis Sivia - https://github.com/scepticulous"
+branding:
+  icon: 'thumbs-up'
+  color: 'green'
 inputs:
-  access_token:
-    description: "Token for the repo. Can be passed in using {{ secrets.GITHUB_TOKEN }}"
-    required: true
+  message:
+    description: "The message the bot should reply with"
+    required: false
 runs:
   using: "docker"
   image: "Dockerfile"

@@ -4,6 +4,7 @@ lib_path = File.expand_path(File.join(File.dirname(__FILE__), "..", "lib", "plus
 require_relative lib_path
 
 token = ENV.fetch("GITHUB_TOKEN")
+message = ENV["INPUT_MESSAGE"]
 event_path = ENV.fetch("GITHUB_EVENT_PATH")
 
-Plus9k.new(token: token, event_path: event_path).run
+Plus9k.new(token: token, event_path: event_path, message: message).run
