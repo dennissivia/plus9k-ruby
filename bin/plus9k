@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+lib_path = File.expand_path(File.join(File.dirname(__FILE__), "..", "lib", "plus9k.rb")).to_s
+require_relative lib_path
+
+token = ENV.fetch("GITHUB_TOKEN")
+event_path = ENV.fetch("GITHUB_EVENT_PATH")
+
+Plus9k.new(token: token, event_path: event_path).run

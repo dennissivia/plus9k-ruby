@@ -1,0 +1,10 @@
+name: "Plus 9k"
+description: "Responds to +1 comments in issues"
+author: "Dennis sivia"
+inputs:
+  access_token:
+    description: "Token for the repo. Can be passed in using {{ secrets.GITHUB_TOKEN }}"
+    required: true
+runs:
+  using: "docker"
+  image: "Dockerfile"
