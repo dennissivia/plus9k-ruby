@@ -8,7 +8,7 @@ class Plus9k
     @event_path = event_path
     @payload = JSON.parse(File.read(event_path), symbolize_names: true)
     @client = Octokit::Client.new(:access_token => token)
-    @message = message || default_message
+    @message = message.to_s.empty? ? default_message : message
   end
 
   def default_message
@@ -47,7 +47,7 @@ class Plus9k
   end
 
   def reply(repo, issue_id)
-    puts "Adding message: #{repo}/#{issue_id}"
+    puts "Adding message: #{repo}/#{issue_id} with message #{@message}"
     @client.add_comment(repo, issue_id, @message)
   end
 end
