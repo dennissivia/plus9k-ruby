@@ -2,8 +2,7 @@
 
 ## What it does
 
-This action automatcially replies to `+1` comments to let the user know that the most
-helpful way is to either react with an emoji to an existing post or to provide more context.
+This action automatcially replies to `+1` comments to let the user know that a more helpful way is to either react with an emoji to an existing post or to provide more context.
 
 ## How it looks like
 
@@ -11,9 +10,7 @@ helpful way is to either react with an emoji to an existing post or to provide m
 
 ## Usage
 
-See [action.yml](action.yml) for all details
-
-Full example:
+Production example:
 
 ```yaml
 on: [issue_comment]
