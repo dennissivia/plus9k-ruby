@@ -29,17 +29,22 @@ class Plus9k
   private
 
   def handle_plus_one
-    issue_id = @payload.fetch(:issue).fetch(:number)
-    repo = @payload.fetch(:repository).fetch(:full_name)
+    issue = @payload.fetch(:issue)
+    issue_id = issue.fetch(:number)
+    repo  = @payload.fetch(:repository).fetch(:full_name)
 
-    if (!already_replied?(repo, issue_id))
+    if (!ignore_event?(repo, issue))
       reply(repo, issue_id)
     end
   end
 
-  def already_replied?(repo, issue_id)
+  def ignore_event?(repo, issue)
+    @payload.fetch(:action) == 'deleted' || already_replied?(repo, issue)
+  end
+
+  def already_replied?(repo, issue)
     false
-    # recent_comments = @client.issue_comments(nwo, issue_id)
+    # recent_comments = @client.issue_comments(nwo, issue.fetch(:id))
     # find my own comments in there...
   end
 
