@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 lib_path = File.expand_path(File.join(File.dirname(__FILE__), "..", "lib", "plus9k.rb")).to_s
 require_relative lib_path

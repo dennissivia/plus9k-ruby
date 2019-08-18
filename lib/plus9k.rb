@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "octokit"
 require "json"
 
@@ -7,7 +9,7 @@ class Plus9k
 
     @event_path = event_path
     @payload = JSON.parse(File.read(event_path), symbolize_names: true)
-    @client = Octokit::Client.new(:access_token => token)
+    @client = Octokit::Client.new(access_token: token)
     @message = message.to_s.empty? ? default_message : message
   end
 
@@ -17,10 +19,10 @@ class Plus9k
     File.read(path)
   end
 
-  def run()
+  def run
     content = @payload.dig(:comment, :body)
     if content == "+1"
-      handle_plus_one()
+      handle_plus_one
     else
       puts "This is a regular comment. Doing nothing."
     end
@@ -31,18 +33,16 @@ class Plus9k
   def handle_plus_one
     issue = @payload.fetch(:issue)
     issue_id = issue.fetch(:number)
-    repo  = @payload.fetch(:repository).fetch(:full_name)
+    repo = @payload.fetch(:repository).fetch(:full_name)
 
-    if (!ignore_event?(repo, issue))
-      reply(repo, issue_id)
-    end
+    reply(repo, issue_id) unless ignore_event?(repo, issue)
   end
 
   def ignore_event?(repo, issue)
     @payload.fetch(:action) == 'deleted' || already_replied?(repo, issue)
   end
 
-  def already_replied?(repo, issue)
+  def already_replied?(_repo, _issue)
     false
     # recent_comments = @client.issue_comments(nwo, issue.fetch(:id))
     # find my own comments in there...
