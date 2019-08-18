@@ -5,6 +5,9 @@
 This action automatcially replies to `+1` comments to let the user know that the most
 helpful way is to either react with an emoji to an existing post or to provide more context.
 
+## How it looks like
+
+![Example comment](/docs/img/example-comment.png "Plus9k in action")
 
 ## Usage
 

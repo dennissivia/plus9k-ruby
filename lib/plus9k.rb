@@ -22,7 +22,7 @@ class Plus9k
     if content == "+1"
       handle_plus_one()
     else
-      puts "this is a normal comment: #{content}"
+      puts "This is a regular comment. Doing nothing."
     end
   end
 
@@ -49,7 +49,6 @@ class Plus9k
   end
 
   def reply(repo, issue_id)
-    puts "Adding message: #{repo}/#{issue_id} with message #{@message}"
     @client.add_comment(repo, issue_id, @message)
   end
 end
