@@ -12,12 +12,9 @@ class Plus9k
   end
 
   def default_message
-    <<~MESSAGE
-      Thanks for supporting this discussion by sharing your opinion. :heart:
-      Did you know? Dedicated `+1`-comments can make it hard to follow the discussion.
-      Sharing your support via emoji reactions on comments avoids that problem and helps us get a complete picture of everybody's opinion.
-      Make sure to use a reaction next time to make sure your vote is not lost.
-    MESSAGE
+    filename = 'default-message.txt'
+    path = File.expand_path(File.join(File.dirname(__FILE__), '..', 'data', filename))
+    File.read(path)
   end
 
   def run()

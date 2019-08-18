@@ -2,7 +2,7 @@
 
 ## What it does
 
-This action automatcially replies to `+1` comments to let the user know that the most 
+This action automatcially replies to `+1` comments to let the user know that the most
 helpful way is to either react with an emoji to an existing post or to provide more context.
 
 
@@ -29,7 +29,7 @@ jobs:
 ## Input
 
 * The `GITHUB_TOKEN`-env-var is required
-* `MESSAGE`-input is optional, the default is provided [here](https://github.com/scepticulous/action-plus-9k/blob/master/lib/plus9k.rb#L14-L20).
+* `MESSAGE`-input is optional, the default is provided [here](/data/default-message.txt).
 
 ## License
 
